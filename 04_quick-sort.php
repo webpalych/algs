@@ -1,5 +1,7 @@
 <?php
+$array = include __DIR__ . '/random_array.php';
 
+$time_start = microtime(true);
 /**
  * @param array $array
  * @return array
@@ -26,4 +28,11 @@ function quick_sort (array $array) {
     }
 }
 
-print_r(quick_sort([1,5,7,23,8,5,10,4,3,2,35,76,45,13,89,23,356]));
+quick_sort($array);
+
+$time_end = microtime(true);
+
+$execution_time = ($time_end - $time_start);
+
+//execution time of the script
+echo 'Total Execution Time: '.$execution_time.' secs';

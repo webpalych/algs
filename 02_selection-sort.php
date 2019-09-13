@@ -1,5 +1,7 @@
 <?php
+$array = include __DIR__ . '/random_array.php';
 
+$time_start = microtime(true);
 function findMin($array) {
     $min_index = 0;
 
@@ -23,5 +25,11 @@ function selectionSort(&$array) {
     return $return;
 }
 
-$array = [1,2,4,7,-5,8];
-var_dump(selectionSort($array)) ;
+selectionSort($array);
+
+$time_end = microtime(true);
+
+$execution_time = ($time_end - $time_start);
+
+//execution time of the script
+echo 'Total Execution Time: '.$execution_time.' secs';

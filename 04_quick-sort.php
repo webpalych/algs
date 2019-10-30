@@ -11,7 +11,10 @@ function quick_sort (array $array) {
         return $array;
     }
     else {
-        $pivot = array_shift($array);
+        //$pivot = array_shift($array);
+        $pivot_index = intval(count($array)/2);
+        $pivot = $array[$pivot_index];
+        unset($array[$pivot_index]);
 
         $less = [];
         $greater = [];

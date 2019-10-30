@@ -5,12 +5,10 @@
  */
 function getArraySumm (array $array) {
 
-    if (!count($array)) {
+    if (!$temp = array_pop($array)) {
         return 0;
     }
 
-    $temp = $array[0];
-    array_splice($array, 0, 1);
     return $temp + getArraySumm($array);
 }
 
@@ -20,11 +18,10 @@ function getArraySumm (array $array) {
  */
 function getArrayCount (array $array) {
 
-    if (!count($array)) {
+    if (!array_pop($array)) {
         return 0;
     }
 
-    array_splice($array, 0, 1);
     return 1 + getArrayCount($array);
 }
 
@@ -41,6 +38,6 @@ function factorial ($n) {
     return $n * factorial($n-1);
 }
 
-echo getArraySumm([1,2,4,5,6,7,8,9,10]);
-echo getArrayCount([1,'af',2,5,'awfwa',2]);
-echo factorial(45);
+echo getArraySumm([1,2,4,5,6,7,8,9,10]) . PHP_EOL;
+echo getArrayCount([1,'af',2,5,'awfwa',2]) . PHP_EOL;
+echo factorial(45) . PHP_EOL;
